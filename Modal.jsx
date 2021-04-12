@@ -33,7 +33,7 @@ class EditNicknameModal extends React.Component {
           <ModalRoot transitionState={1}>
               <Header separator={false}>
                   <FormTitle tag={FormTitle.Tags.H4}>
-                      {this.props.username}
+                      Nametag
                   </FormTitle>
               </Header>
               <Content>
@@ -41,9 +41,7 @@ class EditNicknameModal extends React.Component {
                       onChange={_ => this.setNickname(_)}
                       placeholder={this.props.username}
                       value={this.state.nickname}
-                  >
-                      {"Nametag"}
-                  </TextInput>
+                  />
               </Content>
               <Footer>
                   <Button
