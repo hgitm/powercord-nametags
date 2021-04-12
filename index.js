@@ -31,14 +31,20 @@ module.exports = class NameTags extends Plugin {
   messageHeaderPatch(args, res) {
     const message = args[0].message;
     
-    const nametag = this.settings.get(message.author.id,null)
+    const nametag = this.settings.get(message.author.id,null);
     if (nametag != null) {
       const header = findInReactTree(res, e => Array.isArray(e?.props?.children) && e.props.children.find(c => c?.props?.message));
+      
+      const rolecolorSetting = ['t','1','true','y','yes'].includes(this.settings.get('_rolecolor','false')) ? true : false;
+      const color = header.props.children[0].props.author.colorString;
+      const should_color = rolecolorSetting && color != undefined;
+      
       header.props.children.splice(1,0,React.createElement(
         'span',
-        {style:{marginLeft: "5px"},className:"nametag-header"},
+        {style:should_color ? {marginLeft: "5px",color: color} : {marginLeft: "5px"},className:"nametag-header"},
         `[${nametag}]`)
       );
+      console.log(header.props.children)
     }
 
     return res;
