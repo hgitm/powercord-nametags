@@ -1,4 +1,5 @@
 # powercord-nametags
+
 This is a powercord plugin that displays nametags next to users.
 
 It adds a menu option when right clicking on a user. It also adds the [p]nametag command.
