@@ -41,6 +41,7 @@ class EditNicknameModal extends React.Component {
                       onChange={_ => this.setNickname(_)}
                       placeholder={this.props.username}
                       value={this.state.nickname}
+                      onKeyDown={e => {if (e.key === 'Enter') this.props.close(this.state)}}
                   />
               </Content>
               <Footer>
