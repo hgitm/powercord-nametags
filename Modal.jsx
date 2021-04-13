@@ -41,14 +41,14 @@ class EditNicknameModal extends React.Component {
                       onChange={_ => this.setNickname(_)}
                       placeholder={this.props.username}
                       value={this.state.nickname}
-                      onKeyDown={e => {if (e.key === 'Enter') this.props.close(this.state)}}
+                      onKeyDown={e => {if (e.key === 'Enter') this.props.close(this.state); if (e.key === 'Escape') this.props.close(null);}}
+                      autoFocus={true}
                   />
               </Content>
               <Footer>
                   <Button
                       type="submit"
                       onClick={() => this.props.close(this.state)}
-                      autoFocus={true}
                   >
                       {Messages.DONE}
                   </Button>
