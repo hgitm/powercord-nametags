@@ -26,7 +26,7 @@ module.exports = class NameTags extends Plugin {
           typeof (m?.__powercordOriginal_default || m.default) === "function" &&
           (m?.__powercordOriginal_default || m.default)
             .toString()
-            .includes("headerText"),
+            .includes("showTimestampOnHover"),
         false
       );
     const memberListItem = await getModuleByDisplayName("MemberListItem");
