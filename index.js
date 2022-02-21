@@ -111,7 +111,7 @@ module.exports = class NameTags extends Plugin {
     const nametag = this.settings.get(message.author.id, null);
     if (nametag != null) {
       const header = findInReactTree(
-        res,
+        res.props.username,
         (e) =>
           Array.isArray(e?.props?.children) &&
           e.props.children.find((c) => c?.props?.message)
